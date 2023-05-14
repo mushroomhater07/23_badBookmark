@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <h1>Bookmark for scraping email</h1>
+        <a href="javascript: (() => {
+            const documentHTML = document.documentElement.outerHTML;
+            const matches = documentHTML.matchAll(/[\w.+=~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*/g);
+            const flatMatches = Array.from(matches).map((item) => item[0]);
+            const uniqueMatches = Array.from(new Set(flatMatches));
+            
+            if (uniqueMatches.length > 0) {
+              const result = uniqueMatches.join('\n');
+              alert(result);
+            } else {
+              alert('No emails found!');
+            }
+          })();"><img src="./book.png" alt=""></a>
+        <br>
+        example@gmail.com;example2@gmiails.com
+        <p>paragraph@email.cm</p>
+    </center>
+</body>
+
+</html>
